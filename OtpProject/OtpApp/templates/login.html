@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+  <h2>Login</h2>
+  
+  {% if form.errors %}
+    <p class="error">Sorry, that's not a valid username or password</p>
+  {% endif %}
+
+  <form action="/otp/login/" method="post">
+  	{% csrf_token %}
+  	<input type="hidden" name="next" value="{{ next }}" />
+  	{{form}}
+
+    <input type="submit" value="login" />
+    
+  </form>
+
+{% endblock %}

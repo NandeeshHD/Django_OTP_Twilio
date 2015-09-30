@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+  
+  <h2>Register</h2>
+  
+  {% for field in form %}
+    {{field.error}}
+
+  {% endfor %}
+  
+  <form action="/otp/register/" method="post">
+  	{% csrf_token %}
+	{{form}}
+  
+  	<input type="submit" value="Register" />
+    
+  </form>
+  
+{% endblock %}
